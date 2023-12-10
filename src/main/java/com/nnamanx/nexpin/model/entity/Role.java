@@ -1,15 +1,15 @@
 package com.nnamanx.nexpin.model.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Entity
+import java.util.List;
+
+
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -21,5 +21,7 @@ public class Role {
     Long id;
     String name; // user or admin
 
+    @OneToMany(mappedBy = "role")
+    List<Client> clients;
 
 }

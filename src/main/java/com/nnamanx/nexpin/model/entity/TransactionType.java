@@ -1,11 +1,10 @@
 package com.nnamanx.nexpin.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -20,5 +19,8 @@ public class TransactionType {
     Long id;
     String name; // aptek
     String category; // medaxil, mexaric
+
+    @OneToMany(mappedBy = "transactionType")
+    List<Transaction> transactions;
 
 }

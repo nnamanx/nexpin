@@ -1,9 +1,6 @@
 package com.nnamanx.nexpin.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -20,5 +17,8 @@ public class TransactionDetails {
     Long id;
     String organization_service_code; //azerisiq abonent kodu, bazada saxlanilmir;
 
-    // transactions_id, service_id
+    @ManyToOne
+    @JoinColumn(name = "transaction_id")
+    Transaction transaction;
+
 }

@@ -1,11 +1,10 @@
 package com.nnamanx.nexpin.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -21,5 +20,12 @@ public class Service {
     String organization_name;
     String service_name;
     String merchant_code;
+
+    @OneToMany(mappedBy = "service")
+    List<TransactionDetails> transactionDetails;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    Account account;
 
 }

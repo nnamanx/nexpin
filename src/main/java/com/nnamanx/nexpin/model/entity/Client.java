@@ -1,11 +1,10 @@
 package com.nnamanx.nexpin.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -26,5 +25,8 @@ public class Client {
     String password;
     Role role;
     Boolean is_active;
+
+    @OneToMany(mappedBy = "client")
+    List<Account> accounts;
 
 }
