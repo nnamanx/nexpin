@@ -13,12 +13,14 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class TransactionDetails {
+public class Cashback{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String organization_service_code; //azerisiq abonent kodu, bazada saxlanilmir;
 
-    // transactions_id, service_id
+    Double refund_amount;
+
+    // transaction_id, account_id.
+
 }
