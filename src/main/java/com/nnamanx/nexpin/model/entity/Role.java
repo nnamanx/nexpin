@@ -1,5 +1,6 @@
 package com.nnamanx.nexpin.model.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,18 +14,12 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Client {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    String name; // user or admin
 
-    String username;
-    String fullName;
-    String phoneNumber;
-    String email;
-    String password;
-    Role role;
-    Boolean is_active;
 
 }
