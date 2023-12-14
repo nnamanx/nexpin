@@ -23,10 +23,12 @@ public class Client {
     String phoneNumber;
     String email;
     String password;
-    Role role;
     Boolean is_active;
 
     @OneToMany(mappedBy = "client")
     List<Account> accounts;
+
+    @ManyToOne
+    Role role;
 
 }
