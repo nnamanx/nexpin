@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,4 +28,8 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "transaction_type_id")
     TransactionType transactionType;
+
+    @OneToMany(mappedBy = "transaction")
+    List<TransactionDetails> transactionDetails;
+
 }

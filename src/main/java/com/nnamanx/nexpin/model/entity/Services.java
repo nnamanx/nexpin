@@ -21,7 +21,7 @@ public class Services {
     String service_name;
     String merchant_code;
 
-    @OneToMany(mappedBy = "service")
+    @OneToMany(mappedBy = "services")
     List<TransactionDetails> transactionDetails;
 
     @ManyToOne

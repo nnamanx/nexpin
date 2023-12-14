@@ -1,6 +1,6 @@
 spring:
   application:
-    name: jwt project
+    name: nexpin project
   profiles:
     include:
       - db

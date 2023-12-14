@@ -20,6 +20,8 @@ public class AccountType {
     String description;
 
     @OneToMany(mappedBy = "accountType")
-    List<Account> accounts;
+     List<Account> accounts;
+
+
 
 }

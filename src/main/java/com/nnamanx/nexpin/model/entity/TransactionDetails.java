@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,5 +22,9 @@ public class TransactionDetails {
     @ManyToOne
     @JoinColumn(name = "transaction_id")
     Transaction transaction;
+
+    @ManyToOne
+    @JoinColumn(name = "services_id")
+    Services services;
 
 }
