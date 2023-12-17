@@ -1,6 +1,7 @@
 package com.nnamanx.nexpin.model.entity;
 
 
+import com.nnamanx.nexpin.model.enums.Actions;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -26,6 +27,7 @@ public class Card {
     String pan; // 16-digit number
     Integer cvc;
     Boolean is_active;
+    Actions action;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

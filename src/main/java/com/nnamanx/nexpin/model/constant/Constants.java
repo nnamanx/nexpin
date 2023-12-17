@@ -16,4 +16,7 @@ public class Constants {
     public final static String ACCOUNT_ID_URGENT = "Enter the account id.";
     public final static String AMOUNT_URGENT = "Enter amount";
     public final static String TRANSACTION_TYPE_URGENT = "Enter the transaction type.";
+    public final static String CLIENT_ID_URGENT = "Enter client id.";
+    public final static String ACC_ID_URGENT = "Enter account id 🧐";
+    public final static String ACTION_URGENT = "Enter an action type.";
 }
