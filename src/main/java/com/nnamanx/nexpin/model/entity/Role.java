@@ -19,7 +19,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String name; // user or admin
+    String name; // user or admin - create enum if needed
 
     @OneToMany(mappedBy = "role")
     List<Client> clients;
