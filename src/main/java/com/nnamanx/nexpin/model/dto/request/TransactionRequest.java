@@ -1,6 +1,7 @@
 package com.nnamanx.nexpin.model.dto.request;
 
 import com.nnamanx.nexpin.model.entity.TransactionType;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -20,6 +21,7 @@ public class TransactionRequest {
     Long account_id;
 
     @NotBlank(message = AMOUNT_URGENT)
+    @Max(value = 1000, message = EXCEED_LIMIT)
     Double amount;
 
     @NotBlank(message = TRANSACTION_TYPE_URGENT)
