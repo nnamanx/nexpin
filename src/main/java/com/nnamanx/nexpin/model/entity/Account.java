@@ -1,5 +1,6 @@
 package com.nnamanx.nexpin.model.entity;
 
+import com.nnamanx.nexpin.model.enums.AccountType;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,6 +23,10 @@ public class Account {
     String currency;
     Boolean is_active;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "accounttype")
+    AccountType accountType;
+
     @ManyToOne
     @JoinColumn(name = "client_id")
     Client client;
@@ -32,7 +37,4 @@ public class Account {
     @OneToMany(mappedBy = "account")
     List<Transaction> transactions;
 
-    @ManyToOne
-    @JoinColumn(name = "account_type_id")
-    AccountType accountType;
 }

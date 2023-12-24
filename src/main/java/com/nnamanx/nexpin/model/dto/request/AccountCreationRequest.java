@@ -1,6 +1,6 @@
 package com.nnamanx.nexpin.model.dto.request;
 
-import com.nnamanx.nexpin.model.entity.AccountType;
+import com.nnamanx.nexpin.model.enums.AccountType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -19,7 +19,7 @@ public class AccountCreationRequest {
     @NotBlank(message = ID_URGENT)
     Long id;
 
-    @NotBlank(message = ACCOUNT_TYPE_URGENT)
+    @NotBlank(message = ACCOUNT_TYPE_URGENT) // select bar
     AccountType accountType;
 
     @NotBlank(message = CURRENCY_URGENT)

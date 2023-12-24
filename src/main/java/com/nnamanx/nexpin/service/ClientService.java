@@ -1,4 +1,4 @@
 package com.nnamanx.nexpin.service;
 
-public interface UserService {
+public interface ClientService {
 }

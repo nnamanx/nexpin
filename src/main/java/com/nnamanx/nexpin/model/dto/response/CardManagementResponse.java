@@ -13,6 +13,5 @@ public class CardManagementResponse {
     Long card_id;
     Long client_id;
     Long acc_id;
-    
-// cardId`, `userId`, `accountId`, `status`, `message`.
+
 }
