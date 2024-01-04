@@ -1,5 +1,6 @@
 package com.nnamanx.nexpin.model.entity;
 
+import com.nnamanx.nexpin.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -28,13 +29,12 @@ public class Client implements UserDetails {
     String email;
     String password;
     Boolean is_active;
+    @Enumerated(EnumType.STRING)
+    Role role;
 
     @OneToMany(mappedBy = "client")
     List<Account> accounts;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

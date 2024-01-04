@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Cashback{
+public class Cashback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,6 @@ public class Cashback{
 
     @ManyToOne
     @JoinColumn(name = "transaction_id")
-     Transaction transaction;
+    Transaction transaction;
 
 }
