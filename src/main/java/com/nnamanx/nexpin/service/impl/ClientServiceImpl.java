@@ -1,6 +1,7 @@
 package com.nnamanx.nexpin.service.impl;
 
 import com.nnamanx.nexpin.model.entity.Client;
+import com.nnamanx.nexpin.reposiotry.ClientRepository;
 import com.nnamanx.nexpin.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,11 @@ import java.util.List;
 public class ClientServiceImpl implements ClientService {
 
 
+    private final ClientRepository clientRepository;
+
     @Override
     public Client registerNewClient(Client client) {
+
         return null;
     }
 

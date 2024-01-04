@@ -1,11 +1,18 @@
 package com.nnamanx.nexpin.service.impl;
 
 import com.nnamanx.nexpin.model.entity.Account;
+import com.nnamanx.nexpin.reposiotry.AccountRepository;
 import com.nnamanx.nexpin.service.AccountService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
+
+    private final AccountRepository accountRepository;
 
     @Override
     public Account createAccount(Account account) {
