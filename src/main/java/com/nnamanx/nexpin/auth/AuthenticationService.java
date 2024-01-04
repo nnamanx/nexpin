@@ -44,7 +44,8 @@ public class AuthenticationService {
                         request.getPassword()
                 )
         );
-        var client = repository.findByEmail(request.getEmail())
+
+        var client = repository.findByUsername(request.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(client);
         return AuthenticationResponse.builder()
