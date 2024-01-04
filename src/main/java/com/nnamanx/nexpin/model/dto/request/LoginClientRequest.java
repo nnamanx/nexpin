@@ -1,5 +1,6 @@
 package com.nnamanx.nexpin.model.dto.request;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
@@ -18,6 +19,13 @@ public class LoginClientRequest {
 
     @NotBlank(message = USERNAME_URGENT)
     String username;
+
+    @NotBlank(message = FULLNAME_URGENT)
+    String fullName;
+
+    @NotBlank(message = EMAIL_URGENT)
+    @Email(message = EMAIL_IS_NOT_VALID)
+    String email;
 
     @NotBlank(message = PASSWORD_URGENT)
     @Pattern(

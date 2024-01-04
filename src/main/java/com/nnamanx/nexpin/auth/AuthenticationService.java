@@ -23,8 +23,8 @@ public class AuthenticationService {
     public AuthenticationResponse register(LoginClientRequest request) {
 
         var client = Client.builder()
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
+                .username(request.getUsername())
+                .fullName(request.getFullName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.CLIENT)
