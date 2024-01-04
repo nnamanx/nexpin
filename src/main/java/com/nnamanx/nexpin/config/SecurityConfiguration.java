@@ -25,14 +25,14 @@ public class SecurityConfiguration {
         http
                 .csrf(customizer -> customizer.disable())
                 .authorizeRequests(authorize -> authorize
-                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/nexpin/auth/**").permitAll()
                         .anyRequest().authenticated())
                 .securityContext(context ->
                         context.securityContextRepository(new NullSecurityContextRepository()))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .logout(logout -> logout
-                        .logoutUrl("/api/v1/auth/logout")
+                        .logoutUrl("/api/v1/nexpin/auth/logout")
                         // .addLogoutHandler(logoutHandler) // Make sure logoutHandler is defined somewhere
                         .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext()));
 

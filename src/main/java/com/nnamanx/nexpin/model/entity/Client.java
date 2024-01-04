@@ -29,12 +29,12 @@ public class Client implements UserDetails {
     String email;
     String password;
     Boolean is_active;
+
     @Enumerated(EnumType.STRING)
     Role role;
 
     @OneToMany(mappedBy = "client")
     List<Account> accounts;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

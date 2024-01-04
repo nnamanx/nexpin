@@ -1,6 +1,7 @@
 package com.nnamanx.nexpin.auth;
 
 
+import com.nnamanx.nexpin.model.dto.request.ClientRequest;
 import com.nnamanx.nexpin.model.dto.request.LoginClientRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/v1/nexpin/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
 
@@ -18,7 +19,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody LoginClientRequest request
+            @RequestBody ClientRequest request
     ) {
         return ResponseEntity.ok(service.register(request));
     }

@@ -1,7 +1,7 @@
 package com.nnamanx.nexpin.auth;
 
 import com.nnamanx.nexpin.config.JwtService;
-import com.nnamanx.nexpin.model.dto.request.LoginClientRequest;
+import com.nnamanx.nexpin.model.dto.request.ClientRequest;
 import com.nnamanx.nexpin.model.entity.Client;
 import com.nnamanx.nexpin.model.enums.Role;
 import com.nnamanx.nexpin.reposiotry.ClientRepository;
@@ -20,7 +20,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(LoginClientRequest request) {
+    public AuthenticationResponse register(ClientRequest request) {
 
         var client = Client.builder()
                 .username(request.getUsername())
@@ -30,6 +30,7 @@ public class AuthenticationService {
                 .role(Role.CLIENT)
                 .build();
         repository.save(client);
+
         var jwtToken = jwtService.generateToken(client);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
@@ -40,13 +41,14 @@ public class AuthenticationService {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
+                        request.getUsername(),
                         request.getPassword()
                 )
         );
 
-        var client = repository.findByUsername(request.getEmail())
+        var client = repository.findByUsername(request.getUsername())
                 .orElseThrow();
+
         var jwtToken = jwtService.generateToken(client);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
