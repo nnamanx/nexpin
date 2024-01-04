@@ -4,6 +4,7 @@ import com.nnamanx.nexpin.model.entity.Client;
 import com.nnamanx.nexpin.reposiotry.ClientRepository;
 import com.nnamanx.nexpin.service.ClientService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +24,21 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client updateClientDetails(Long clientId, Client client) {
-        return null;
+
+        Client client1 = clientRepository.findById(clientId).orElse(null);
+
+        if (client1 != null) {
+
+            if (client.getUsername() != null) client1.setUsername(client.getUsername());
+            if (client.getEmail() != null) client1.setEmail(client.getEmail());
+
+            clientRepository.save(client1);
+        }else {
+
+            throw new UsernameNotFoundException("User with id " + clientId + " not found");
+        }
+
+        return client;
     }
 
     @Override
