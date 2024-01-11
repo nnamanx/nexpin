@@ -1,12 +1,15 @@
 package com.nnamanx.nexpin.service.impl;
 
+import com.nnamanx.nexpin.exception.NoClientsFoundException;
 import com.nnamanx.nexpin.model.entity.Client;
 import com.nnamanx.nexpin.reposiotry.ClientRepository;
 import com.nnamanx.nexpin.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 @Service
@@ -15,48 +18,60 @@ public class ClientServiceImpl implements ClientService {
 
 
     private final ClientRepository clientRepository;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Override
-    public Client registerNewClient(Client client) {
+    public Client updateClientParameter(Long clientId, String fieldName, Object updatedValue) {
+        Client existingClient = clientRepository.findById(clientId).orElse(null);
 
-        return null;
-    }
+        if (existingClient != null) {
+            try {
 
-    @Override
-    public Client updateClientDetails(Long clientId, Client client) {
+                Field fieldToUpdate = Client.class.getDeclaredField(fieldName);
+                fieldToUpdate.setAccessible(true);
 
-        Client client1 = clientRepository.findById(clientId).orElse(null);
+                fieldToUpdate.set(existingClient, updatedValue);
 
-        if (client1 != null) {
-
-            if (client.getUsername() != null) client1.setFullName(client.getUsername());
-
-            clientRepository.save(client1);
-        }else {
-
-            throw new UsernameNotFoundException("User with id " + clientId + " not found");
+                // Saving new one
+                clientRepository.save(existingClient);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                // Handle exception
+                e.printStackTrace();
+            }
+        } else {
+            throw new UsernameNotFoundException("Client with id " + clientId + " not found");
         }
-
-        return client;
-    }
-
-    @Override
-    public void deleteClient(Long clientId) {
-
+        return existingClient;
     }
 
     @Override
     public Client getClientById(Long clientId) {
-        return null;
+
+        return clientRepository.findById(clientId)
+                .orElseThrow(() -> new UsernameNotFoundException("Client with id " + clientId + " not found"));
     }
 
     @Override
     public List<Client> getAllClients() {
-        return null;
+
+        List<Client> clients = clientRepository.findAll();
+
+        if (clients.isEmpty()) {
+
+            throw new NoClientsFoundException("No clients found.");
+        }
+
+        return clients;
     }
 
     @Override
     public Client changePassword(Long clientId, String newPassword) {
-        return null;
+
+        Client existingClient = clientRepository.findById(clientId)
+                .orElseThrow(() -> new UsernameNotFoundException("Client with id " + clientId + " not found"));
+
+        existingClient.setPassword(passwordEncoder.encode(newPassword));
+        return clientRepository.save(existingClient);
     }
 }
