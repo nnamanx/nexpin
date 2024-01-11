@@ -11,10 +11,7 @@ import lombok.experimental.FieldDefaults;
 public class ClientResponse {
 
     Long id;
-    String username;
     String fullName;
-    String phoneNumber;
-    String email;
     Boolean isActive;
 
 }

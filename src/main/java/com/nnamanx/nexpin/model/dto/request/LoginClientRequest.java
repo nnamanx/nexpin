@@ -17,15 +17,8 @@ import static com.nnamanx.nexpin.model.constant.Constants.*;
 @Validated
 public class LoginClientRequest {
 
-    @NotBlank(message = USERNAME_URGENT)
-    String username;
-
     @NotBlank(message = FULLNAME_URGENT)
     String fullName;
-
-    @NotBlank(message = EMAIL_URGENT)
-    @Email(message = EMAIL_IS_NOT_VALID)
-    String email;
 
     @NotBlank(message = PASSWORD_URGENT)
     @Pattern(

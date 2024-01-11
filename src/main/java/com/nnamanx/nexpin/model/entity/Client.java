@@ -23,12 +23,12 @@ public class Client implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    String username;
     String fullName;
     String phoneNumber;
-    String email;
     String password;
     Boolean is_active;
+    String fin;
+    String serialNumber;
 
     @Enumerated(EnumType.STRING)
     Role role;
@@ -39,6 +39,11 @@ public class Client implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getUsername() {
+        return this.fullName;
     }
 
     @Override

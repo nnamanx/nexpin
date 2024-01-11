@@ -11,7 +11,7 @@ import lombok.experimental.FieldDefaults;
 public class LoginClientResponse {
 
     Long id;
-    String username;
+    String fullName;
     String token;  //jwt
 
 }

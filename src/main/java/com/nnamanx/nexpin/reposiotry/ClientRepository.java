@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-    Optional<Client> findByUsername(String username); // The username might not exist in the database, so that we use Optional not to return NULLPOINTEREXCEPTION
+    Optional<Client> findByFullName(String fullName); // The fullname might not exist in the database, so that we use Optional not to return NULLPOINTEREXCEPTION
 }

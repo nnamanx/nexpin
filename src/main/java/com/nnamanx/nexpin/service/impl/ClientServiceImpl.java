@@ -29,8 +29,7 @@ public class ClientServiceImpl implements ClientService {
 
         if (client1 != null) {
 
-            if (client.getUsername() != null) client1.setUsername(client.getUsername());
-            if (client.getEmail() != null) client1.setEmail(client.getEmail());
+            if (client.getUsername() != null) client1.setFullName(client.getUsername());
 
             clientRepository.save(client1);
         }else {
