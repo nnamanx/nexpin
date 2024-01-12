@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface ClientService {
 
-
     Client updateClientParameter(Long clientId, String fieldName, Object updatedValue);
 
    Client getClientById(Long clientId);
