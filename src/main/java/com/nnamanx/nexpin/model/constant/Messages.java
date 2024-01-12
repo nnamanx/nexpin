@@ -1,6 +1,6 @@
 package com.nnamanx.nexpin.model.constant;
 
-public class Constants {
+public class Messages {
 
     public final static String FULLNAME_URGENT = "Enter your full name.";
     public final static String PHONE_NUMBER_URGENT = "Enter your phone number.";
@@ -17,5 +17,8 @@ public class Constants {
     public final static String ACC_ID_URGENT = "Enter account id 🧐";
     public final static String ACTION_URGENT = "Enter an action type.";
     public final static String EXCEED_LIMIT = "The amount cannot exceed 1000.";
+    public final static String CLIENT_NOT_FOUND = "Client is not found.";
+    public final static String INVALID_DEPOSIT = "Deposit amount must be positive";
+    public final static String INVALID_WITHDRAWAL = "Invalid withdrawal amount or insufficient balance";
 
 }

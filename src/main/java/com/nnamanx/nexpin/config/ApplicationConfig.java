@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import static com.nnamanx.nexpin.model.constant.Messages.CLIENT_NOT_FOUND;
 
 @Configuration
 @RequiredArgsConstructor
@@ -26,7 +26,7 @@ public class ApplicationConfig {
     public UserDetailsService userDetailsService() {
 
         return fullName -> repository.findByFullName(fullName)
-                .orElseThrow(() -> new UsernameNotFoundException("Client Not Found"));
+                .orElseThrow(() -> new UsernameNotFoundException(CLIENT_NOT_FOUND));
     }
 
     @Bean

@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
-
     private final ClientRepository clientRepository;
     private final PasswordEncoder passwordEncoder;
 

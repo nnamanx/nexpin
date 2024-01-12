@@ -7,7 +7,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.validation.annotation.Validated;
 
-import static com.nnamanx.nexpin.model.constant.Constants.*;
+import static com.nnamanx.nexpin.model.constant.Messages.*;
 
 @Data
 @Builder
