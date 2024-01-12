@@ -16,11 +16,13 @@ public class CashbackServiceImpl implements CashbackService {
 
     @Override
     public Cashback recordCashback(Cashback cashback) {
-        return null;
+
+        return cashbackRepository.save(cashback);
     }
 
     @Override
     public List<Cashback> getCashbacksForTransaction(Long transactionId) {
-        return null;
+
+        return cashbackRepository.findByTransactionId(transactionId);
     }
 }
