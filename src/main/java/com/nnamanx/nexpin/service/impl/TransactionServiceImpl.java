@@ -16,16 +16,20 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Transaction recordTransaction(Transaction transaction) {
-        return null;
+
+        return transactionRepository.save(transaction);
     }
 
     @Override
     public List<Transaction> getAllTransactionsForAccount(Long accountId) {
-        return null;
+
+        return transactionRepository.findByAccountId(accountId);
     }
 
     @Override
     public Transaction getTransactionById(Long transactionId) {
-        return null;
+
+        return transactionRepository.findById(transactionId)
+                .orElse(null);
     }
 }
