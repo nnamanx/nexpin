@@ -49,6 +49,4 @@ public class ClientController {
         Client updatedClient = clientService.changePassword(clientId, newPassword);
         return ResponseEntity.ok(updatedClient);
     }
-
-
 }

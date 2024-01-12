@@ -28,8 +28,11 @@ public class Account {
     AccountType accountType;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client")
     Client client;
+
+    @Column(name = "client_id")
+    Long clientId;
 
     @OneToMany(mappedBy = "account")
     List<Card> cards;
