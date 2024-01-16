@@ -1,5 +1,6 @@
 package com.nnamanx.nexpin.auth;
 
+import com.nnamanx.nexpin.config.JwtService;
 import com.nnamanx.nexpin.model.dto.request.ClientRequest;
 import com.nnamanx.nexpin.model.entity.Client;
 import com.nnamanx.nexpin.model.enums.Role;

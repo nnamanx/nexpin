@@ -1,5 +1,6 @@
 package com.nnamanx.nexpin.auth;
 
+import com.nnamanx.nexpin.model.dto.request.ClientRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
