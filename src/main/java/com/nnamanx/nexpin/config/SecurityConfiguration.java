@@ -32,8 +32,10 @@ public class SecurityConfiguration {
                         .requestMatchers("/nexpin/services/**").permitAll()
                         .requestMatchers("/nexpin/cashback/**").permitAll()
                         .anyRequest().authenticated())
+
                 .securityContext(context ->
                         context.securityContextRepository(new NullSecurityContextRepository()))
+
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
